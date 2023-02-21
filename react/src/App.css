@@ -1,0 +1,69 @@
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  height: 8em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 1em #000000aa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #000000aa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.read-the-docs {
+  color: #888;
+}
+.navbar{
+  list-style: none;;
+}
+.navbarunit{
+  padding: 10px;
+  margin-right: 90px;
+}
+.navbarunit:hover{
+  filter: drop-shadow(2px 2px 0.4em #000000aa);
+}
+.bossnav{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(204, 202, 202);
+}
+.carrito{
+  width: 25px;
+  height: 25px;
+  background-color: rgb(204, 202, 202);
+  border-radius: 5px 5px 5px;
+}
+.carrito:hover{
+  filter: drop-shadow(0 0 10px #ffffff);
+
+}
+.cart{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
