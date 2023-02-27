@@ -1,45 +1,49 @@
 import React, {useState} from 'react'
-import zapatillas from "./zapatillas/zapatillas";
+import Zapatillas from "./Zapatillas/Zapatillas";
 
-const prendas = () => {
+const Prendas = () => {
     const [prendas, setPrendas] =useState([
+      
     {
         id: 1,
         name: "New Balance 550",
-        role: "Zapatilla",
-        img: "../assets/nw550.png",
+        role: "Zapatilla 99$",
+        img: "./nw550.jpg",
       },
 
       {
         id: 2,
         name: "New Balance 990",
-        role: "Sandalias playa",
-        img: "",
+        role: "Zapatilla 99$",
+        img: "./nw9000.jpg",
       },
 
       {
         id: 3,
         name: "New Balance 880",
-        role: "Urban style",
-        img: "",
+        role: "Zapatilla 99$ ",
+        img: "./nwrunm.jpg",
       },
 
     ]);
 
     return (
-    <div className="fila">
-        {prendas.map((prendas) =>{
+    <div className="cuadro">
+        {prendas.map((zapatillas) =>{
             return (
-            <zapatillas 
+            <div>
+              <Zapatillas 
             key={zapatillas.id}
             name={zapatillas.name}
             img={zapatillas.img}
             role={zapatillas.role}
             />
+            </div>
+            
           );
         })}
     </div>
       )
     }
 
-export default prendas
+export default Prendas;

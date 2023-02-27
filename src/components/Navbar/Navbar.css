@@ -1,0 +1,36 @@
+.carrito{
+    margin: 5px;
+}
+.navbar{
+    list-style: none;;
+  }
+  .navbarunit{
+    padding: 10px;
+    margin-right: 90px;
+  }
+  .navbarunit:hover{
+    filter: drop-shadow(2px 2px 0.4em #000000aa);
+  }
+  .bossnav{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(204, 202, 202);
+  }
+  .carrito{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(204, 202, 202);
+    border-radius: 5px 5px 5px;
+  }
+  .carrito:hover{
+    filter: drop-shadow(0 0 10px #ffffff);
+  
+  }
+  .cart{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
