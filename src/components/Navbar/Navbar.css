@@ -2,7 +2,7 @@
     margin: 5px;
 }
 .navbar{
-    list-style: none;;
+    list-style: none;
   }
   .navbarunit{
     padding: 10px;
@@ -13,11 +13,12 @@
   }
   .bossnav{
     display: flex;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: rgb(204, 202, 202);
+    background-color: rgb(216, 215, 215);
+    border-radius: 10px 10px 10px;
   }
   .carrito{
     width: 25px;
@@ -33,4 +34,7 @@
     display: flex;
     align-items: center;
     margin-right: 10px;
+  }
+  a{
+    text-decoration: none;
   }
