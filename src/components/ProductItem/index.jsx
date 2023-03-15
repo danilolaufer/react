@@ -1,18 +1,19 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import Zapatillas from '../Prendas/Zapatillas/zapatillas'
-import Prendas from '../Prendas/Prendas'
-import Nw550 from '../Nw550/Nw550'
-const ProductItem = () => {
+import { useParams } from "react-router-dom";
+
+const ProductItem = ({ productos }) => {
+  const { id } = useParams();
+  const producto = productos.find((producto) => producto.id == id);
 
   return (
-    
-        <div>
-            <Nw550
+    <div className="cuadro">
+      <h4 className="titulo">{producto.title}</h4>
+      <img className="img" src={producto.image} alt="" width={200}/>
+      <h5>{producto.category}</h5>
+      <p className="descr">{producto.description}</p>
+      <p className="precio">$ {producto.price}</p>
+      <p>rating: {producto.rating.rate}</p>
+    </div>
+  );
+};
 
-          />
-        </div>            
-        );
-      }
-
-export default ProductItem
+export default ProductItem;

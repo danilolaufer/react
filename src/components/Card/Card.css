@@ -1,0 +1,24 @@
+.fondo1{
+    display: flex;
+    width:99%;
+    padding: 28px;
+    margin: 8px;
+    border: 1px solid gray;
+}
+.image{
+    width: 200px;
+    margin-right: 200px;
+}
+.descr{
+    width: 280px;
+    font-size: 12px;
+    margin: 10px;
+}
+.titulo{
+    margin: 10px;
+    width: 300px;
+}
+.precio{
+    margin: 70px;
+    font-size: 25px;
+}
