@@ -1,0 +1,22 @@
+.cuadro{
+    display: flex;
+    justify-content: center;
+    border: 1px  solid black;
+    margin:100px;
+
+}
+.img{
+    width: 350px;
+    margin-right: 180px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.marco{
+    margin: 50px;
+}
+.titulo{
+    font-size: 30px;
+}
+.titulo:hover{
+    filter: drop-shadow(0 0 10px #000000aa);
+}

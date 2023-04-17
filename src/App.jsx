@@ -10,23 +10,59 @@ import Hombre from "./components/pages/Hombre/Hombre";
 import Joyas from "./components/pages/Joyas/Joyas";
 import Electronica from "./components/pages/Electronica/Electronica";
 import Mujer from "./components/pages/Mujer/Mujer";
+import Loading from "./components/Loading/Loading";
+import db from "../db/firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 
 function App() {
-  const [productos, setProductos] = useState([]);
+  const [items, setItems] = useState([]);
+  const itemsCollectionRef = collection(db, "items");
 
-  const getProductos = async () => {
-    const res = await axios.get("https://fakestoreapi.com/products");
-    setProductos(res.data);
+  const getItems = async () => {
+    const itemsCollection = await getDocs(itemsCollectionRef);
+    setItems(
+      itemsCollection.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+    );
   };
 
   useEffect(() => {
-    getProductos();
+    getItems();
   }, []);
 
+
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const getProductos = async () => {
+    const res = await axios.get("https://fakestoreapi.com/products");
+    setProductos(res);
+  };
+
+
+  useEffect(() => {
+    const getProducts =async () => {
+      const response = await fetch ("https://fakestoreapi.com/products")
+      const data = await response.json();
+      setProductos(data)    
+      setLoading(false)
+      }
+    getProducts();
+    getProductos();
+    
+  }, []);
+  if (loading) {
+    return <Loading/>
+  }
   return (
     <div>
-      
+      <div>
+          {items.map((item) => (
+        <h2 key={item.id}>{item.title}</h2>
+      ))}
+        </div>
+         
       <Navbar />
+      {/* <h3 className="bienvenido">Bienvenido/a</h3> */}
       <Routes>
         <Route path="/" element={<Navigate to="home" />} />
         <Route path="/home" element={<Home />} />
@@ -34,6 +70,7 @@ function App() {
           path="/productos"
           element={<ProductList productos={productos} />}
         />
+        
         <Route
           path="/productos/:id"
           element={<ProductItem productos={productos} />}
@@ -47,5 +84,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

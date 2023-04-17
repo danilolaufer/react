@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Card.css"
 
-const Card = ({ producto }) => {
+const Card = ({ producto, }) => {
   return (
     <Link to={`${producto.id}`}>
       <div className="fondo1">
