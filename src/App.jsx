@@ -15,6 +15,7 @@ import db from "../db/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
 function App() {
+
   const [items, setItems] = useState([]);
   const itemsCollectionRef = collection(db, "items");
 
@@ -27,22 +28,6 @@ function App() {
 
   useEffect(() => {
     getItems();
-  }, []);
-
-
-
-  const [images, setImages] = useState([]);
-  const imagesCollectionRef = collection(db, "images");
-
-  const getImages = async () => {
-    const imagesCollection = await getDocs(imagesCollectionRef);
-    setImages(
-      imagesCollection.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-    );
-  };
-
-  useEffect(() => {
-    getImages();
   }, []);
 
 
