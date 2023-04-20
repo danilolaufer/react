@@ -5,7 +5,7 @@ import ProductList from "./components/ProductList";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import ProductItem from "./components/ProductItem";
+import ProductItem from "./components/ProductItem/Index";
 import Hombre from "./components/pages/Hombre/Hombre";
 import Joyas from "./components/pages/Joyas/Joyas";
 import Electronica from "./components/pages/Electronica/Electronica";
@@ -27,6 +27,22 @@ function App() {
 
   useEffect(() => {
     getItems();
+  }, []);
+
+
+
+  const [images, setImages] = useState([]);
+  const imagesCollectionRef = collection(db, "images");
+
+  const getImages = async () => {
+    const imagesCollection = await getDocs(imagesCollectionRef);
+    setImages(
+      imagesCollection.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+    );
+  };
+
+  useEffect(() => {
+    getImages();
   }, []);
 
 
@@ -54,15 +70,8 @@ function App() {
     return <Loading/>
   }
   return (
-    <div>
-      <div>
-          {items.map((item) => (
-        <h2 key={item.id}>{item.title}</h2>
-      ))}
-        </div>
-         
+    <div>  
       <Navbar />
-      {/* <h3 className="bienvenido">Bienvenido/a</h3> */}
       <Routes>
         <Route path="/" element={<Navigate to="home" />} />
         <Route path="/home" element={<Home />} />

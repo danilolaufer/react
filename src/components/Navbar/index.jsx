@@ -13,7 +13,7 @@ const Navbar = () => {
           <NavLink
           to="/"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}>        
-        <img  className="logo"src="https://ibb.co/YXKjn4b" alt="" />
+        <img  className="logo"src="../public/nwlogo.png" alt="" />
         </NavLink>
         <NavLink
           to="productos"

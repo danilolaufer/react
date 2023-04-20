@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import "./Index.css"
 
-const ProductItem = ({ productos, }) => {
+const ProductItem = ({ productos}) => {
   const { id } = useParams();
   const producto = productos.find((producto) => producto.id == id);
 
